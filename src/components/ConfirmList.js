@@ -2,7 +2,7 @@ export default function ConfirmList(props) {
   const plan = props.plan;
   const addons = props.addons;
   let totalPrice;
-  const yearly = plan.yearly || false
+  const yearly = (typeof plan.yearly !== 'undefined') ? plan.yearly : false;
   if (yearly) {
     totalPrice = plan.price;
     addons.map((addon) => {
