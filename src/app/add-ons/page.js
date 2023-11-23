@@ -10,8 +10,8 @@ import React, { useState } from "react";
 export default function addonsPage() {
   const router = useRouter();
   const plan = getCookie("plan") ;
-  let yearly = false
-  yearly = (typeof plan.yearly !== 'undefined') ? plan.yearly : false;
+  const yearly = (typeof plan !== 'undefined') ? plan.yearly : false;
+  console.log(yearly)
   const [selectedAddons, setSelectedAddons] = useState([]);
   const addons = [
     {
