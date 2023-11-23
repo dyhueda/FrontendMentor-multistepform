@@ -29,7 +29,7 @@ export default function FinishingUpPage(){
           description={"Double-check everything looks OK before confirming."}
           >
             <ConfirmList plan={plan} addons={addons} />
-          <Footer onClick={handleConfirm} step={4}/>
+            <Footer onClick={handleConfirm} step={4}/>
           </Card>
         </div>
     )

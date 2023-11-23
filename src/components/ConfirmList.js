@@ -2,7 +2,8 @@ export default function ConfirmList(props) {
   const plan = props.plan;
   const addons = props.addons;
   let totalPrice;
-  if (plan.yearly) {
+  const yearly = plan.yearly || false
+  if (yearly) {
     totalPrice = plan.price;
     addons.map((addon) => {
       totalPrice = totalPrice + addon.priceYear;
@@ -20,14 +21,14 @@ export default function ConfirmList(props) {
         <div className="flex items-center justify-between border-b pb-2">
           <div className="flex flex-col">
             <h3 className="font-bold text-MarineBlue">
-              {plan.name} {plan.yearly ? "(Yearly)" : "(Monthly)"}
+              {plan.name} {yearly ? "(Yearly)" : "(Monthly)"}
             </h3>
             <a className="underline" href="/plans">
               Change
             </a>
           </div>
           <p className="font-bold text-MarineBlue">
-            {plan.yearly ? `$${plan.price}/yr` : `$${plan.price}/mo`}{" "}
+            {yearly ? `$${plan.price}/yr` : `$${plan.price}/mo`}{" "}
           </p>
         </div>
         <div className="flex flex-col py-2 gap-3">
@@ -35,7 +36,7 @@ export default function ConfirmList(props) {
             <div className="flex justify-between" key={addon.title}>
               <p>{addon.title}</p>
               <p className=" font-medium text-MarineBlue">
-                {plan.yearly
+                {yearly
                   ? `+$${addon.priceYear}/yr`
                   : `+$${addon.priceMonth}/mo`}
               </p>
@@ -44,7 +45,7 @@ export default function ConfirmList(props) {
         </div>
       </div>
       <div className="flex justify-between px-3 pt-6">
-        {plan.yearly ? (
+        {yearly ? (
           <>
             <p>Total (per year)</p>
             <p className="text-PurplishBlue font-bold text-lg">

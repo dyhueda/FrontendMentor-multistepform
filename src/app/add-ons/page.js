@@ -10,6 +10,7 @@ import React, { useState } from "react";
 export default function addonsPage() {
   const router = useRouter();
   const plan = getCookie("plan") ;
+  const yearly = plan.yearly || false;
   const [selectedAddons, setSelectedAddons] = useState([]);
   const addons = [
     {
@@ -49,7 +50,7 @@ export default function addonsPage() {
               addon={addon}
               selectedAddons={selectedAddons}
               setSelectedAddons={setSelectedAddons}
-              yearly={plan.yearly}
+              yearly={yearly}
             />
           </React.Fragment>
         ))}
