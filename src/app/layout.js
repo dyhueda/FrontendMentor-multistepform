@@ -1,7 +1,7 @@
-import { Inter } from 'next/font/google'
+import { Ubuntu } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const ubuntu = Ubuntu({ subsets: ['latin'] , weight:['300' , '400' , '500' , '700']})
 
 export const metadata = {
   title: 'Create Next App',
@@ -11,7 +11,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${ubuntu.className} h-screen w-screen sm:bg-none bg-Magnolia text-CoolGray bg-[url('./../../public/bg-sidebar-mobile.svg')] bg-no-repeat bg-[length:100%_auto]`}>
+        <div className='sm:py-40 sm:px-24 sm:h-full sm:justify-center sm:flex'>
+          <div className='sm:bg-white sm:flex sm:h-full sm:p-5 sm:rounded-lg'>
+
+        {children}
+          </div>
+
+        </div>
+        </body>
     </html>
   )
 }
