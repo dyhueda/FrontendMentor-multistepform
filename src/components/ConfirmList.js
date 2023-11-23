@@ -1,10 +1,10 @@
 "use client"
 export default function ConfirmList(props) {
-  const plan = props.plan;
-  const addons = props.addons;
+  const plan = (typeof props.plan !== 'undefined') ? props.plan : {yearly: false, price: 0};
+  const addons = (typeof props.addons !== 'undefined') ? props.addons : {priceYear: 0, priceMonth: 0};
   let totalPrice;
-  const yearly = (typeof plan !== 'undefined') ? plan.yearly : false;
-  const price = (typeof plan !== 'undefined') ? plan.price : 0;
+  const yearly = plan.yearly;
+  const price = plan.price ;
   if (yearly) {
     totalPrice = price;
     addons.map((addon) => {
