@@ -3,13 +3,14 @@ export default function ConfirmList(props) {
   const addons = props.addons;
   let totalPrice;
   const yearly = (typeof plan !== 'undefined') ? plan.yearly : false;
+  const price = (typeof plan !== 'undefined') ? plan.price : 0;
   if (yearly) {
-    totalPrice = plan.price;
+    totalPrice = price;
     addons.map((addon) => {
       totalPrice = totalPrice + addon.priceYear;
     });
   } else {
-    totalPrice = plan.price;
+    totalPrice = price;
     addons.map((addon) => {
       totalPrice = totalPrice + addon.priceMonth;
     });
@@ -28,7 +29,7 @@ export default function ConfirmList(props) {
             </a>
           </div>
           <p className="font-bold text-MarineBlue">
-            {yearly ? `$${plan.price}/yr` : `$${plan.price}/mo`}{" "}
+            {yearly ? `$${price}/yr` : `$${price}/mo`}{" "}
           </p>
         </div>
         <div className="flex flex-col py-2 gap-3">
