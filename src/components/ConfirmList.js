@@ -1,3 +1,4 @@
+"use client"
 export default function ConfirmList(props) {
   const plan = props.plan;
   const addons = props.addons;
