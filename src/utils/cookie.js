@@ -5,7 +5,7 @@ export const setCookie = (key, value, options = {}) => {
 };
 export const getCookie = (key) => {
   const cookieValue = Cookies.get(key);
-  return cookieValue ? JSON.parse(cookieValue) : null;
+  return cookieValue ? JSON.parse(cookieValue) : undefined;
 };
 export const deleteCookie =(key)=>{
   Cookies.remove(key)

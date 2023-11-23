@@ -9,7 +9,7 @@ import React, { useState } from "react";
 
 export default function addonsPage() {
   const router = useRouter();
-  const plan = getCookie("plan");
+  const plan = getCookie("plan") ;
   const [selectedAddons, setSelectedAddons] = useState([]);
   const addons = [
     {
